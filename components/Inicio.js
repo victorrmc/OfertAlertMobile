@@ -9,6 +9,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
+import scrapingOfert from "../service/ScrapingWeb";
 
 export function Inicio() {
   const [email, setEmail] = useState("");
@@ -34,16 +35,24 @@ export function Inicio() {
       return;
     }
 
-    // Aquí puedes realizar alguna acción con los valores de email y url, como enviarlos a un servidor, etc.
-    console.log("Email:", email);
-    console.log("URL:", url);
+    scrapingOfert({ url, email })
+      .then(() => {
+        // Limpiar los campos después de una respuesta exitosa
+        setEmail("");
+        setUrl("");
+        Alert.alert("Éxito", "Los datos se han enviado correctamente.");
+      })
+      .catch((error) => {
+        console.error("Error al enviar los datos:", error);
+        Alert.alert("Error", "Hubo un problema al enviar los datos. Por favor, intente de nuevo.");
+      });
   };
 
   return (
     <View style={styles.container}>
       <View style={styles.content}>
         <Text style={[styles.titulo, styles.TextContainer]}>
-          <Text style={styles.naranja}t>OfertAlert</Text> Encuentra las mejores ofertas sin esfuerzo
+          <Text style={styles.naranja} t>OfertAlert</Text> Encuentra las mejores ofertas sin esfuerzo
         </Text>
         <Text style={styles.TextContainer}>
           Esta aplicación te permite seguir el precio de productos online y

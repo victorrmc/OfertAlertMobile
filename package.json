@@ -10,15 +10,20 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.1",
+    "@extractus/article-extractor": "^8.0.10",
+    "axios": "^1.7.2",
     "expo": "^51.0.11",
     "expo-status-bar": "~1.12.1",
+    "playwright": "^1.44.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.2",
-    "react-native-web": "~0.19.6"
+    "react-native-web": "~0.19.10"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.24.0",
+    "@playwright/test": "^1.44.1",
+    "@types/node": "^20.14.2"
   },
   "private": true
 }
