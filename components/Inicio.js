@@ -4,6 +4,7 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  SafeAreaView,
   View,
   Alert,
   Image,
@@ -54,7 +55,7 @@ export function Inicio() {
         <Text style={[styles.titulo, styles.TextContainer]}>
           <Text style={styles.naranja} t>OfertAlert</Text> Encuentra las mejores ofertas sin esfuerzo
         </Text>
-        <Text style={styles.TextContainer}>
+        <Text style={[styles.TextContainer, styles.ExplanitationContainer]}>
           Esta aplicación te permite seguir el precio de productos online y
           recibir alertas cuando haya ofertas. Sólo tienes que agregar los enlaces
           de los productos que te interesen separados por comas. La aplicación
@@ -91,7 +92,7 @@ export function Inicio() {
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView horizontal={true} contentContainerStyle={styles.scrollView}>
+      <ScrollView  contentContainerStyle={styles.scrollView}>
         <Image
           style={styles.img}
           source={require("../public/img/ASOS_logo.jpg")}
@@ -118,6 +119,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 20,
   },
+  ExplanitationContainer: {
+    marginTop: 30,
+    marginBottom: 20,
+  },
   TextContainer: {
     color: '#fff',
   },
@@ -141,7 +146,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: "blue",
+    backgroundColor: "orange",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 5,
@@ -164,5 +169,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: "bold",
+    fontSize: 15,
+    marginBottom: 15,
   }
 });
