@@ -2,34 +2,40 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ImageBackground, Alert, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-
-export default function LoginScreen() {
+import TextInputDefault from '../components/TextInputDefault';
+export default function CombinedScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [url, setUrl] = useState('');
     const navigation = useNavigation();
 
     const handleLogin = () => {
         if (email === '' || password === '') {
-            Alert.alert('Error', 'Por favor, ingresa tu correo y contraseña.');
+            Alert.alert('Error', 'Please enter your email and password.');
         } else {
-            // Lógica para manejar el inicio de sesión
-            Alert.alert('Inicio de sesión exitoso', `Bienvenido, ${email}`);
-            navigation.navigate('Inicio');
+            // Handle login logic here
+            Alert.alert('Login successful', `Welcome, ${email}`);
+            navigation.navigate('Home'); // Replace 'Home' with your actual home screen name
         }
     };
 
     const handleGoogleLogin = () => {
-        // Lógica para el inicio de sesión con Google
+        // Handle Google login logic here
     };
 
     const handleAppleLogin = () => {
-        // Lógica para el inicio de sesión con Apple
+        // Handle Apple login logic here
+    };
+
+    const handleSubmit = () => {
+        // Handle form submission logic here
+        Alert.alert('Form submitted', `Email: ${email}, URL: ${url}`);
     };
 
     return (
         <View className="flex-1 justify-center items-center">
             <ImageBackground
-                source={require('../public/img/background.jpg')} // Cambia esto por el fondo que desees
+                source={require('../public/img/background.jpg')} // Change this to your desired background image
                 className="flex-1 justify-center items-center w-full"
             >
                 <View className="bg-gray-800 opacity-90 p-5 rounded-3xl w-11/12 items-center">
@@ -37,21 +43,17 @@ export default function LoginScreen() {
                         <Image source={require('../public/img/logo.png')} className="w-12 h-16 mr-3" />
                         <Text className="text-white text-lg font-bold">Log in to your account</Text>
                     </View>
-
-                    {/* Email Input */}
-                    <TextInput
-                        className="bg-white p-3 rounded-2xl mb-4 w-full h-14" // Altura predefinida
-                        placeholder="Email address"
+                    <TextInputDefault placeholder="Email address"
                         keyboardType="email-address"
                         autoCapitalize="none"
                         placeholderTextColor="#666"
                         onChangeText={setEmail}
-                        value={email}
-                    />
+                        value={email} />
+
 
                     {/* Password Input */}
                     <TextInput
-                        className="bg-white p-3 rounded-2xl mb-4 w-full h-14" // Altura predefinida
+                        className="bg-white p-3 rounded-2xl mb-4 w-full h-14" // Predefined height
                         placeholder="Password"
                         secureTextEntry={true}
                         autoCapitalize="none"
@@ -89,6 +91,24 @@ export default function LoginScreen() {
                             <Text className="text-white underline">Forgot your password?</Text>
                         </TouchableOpacity>
                     </View>
+
+                    {/* Form Section */}
+                    <Text className="font-bold text-lg text-white mb-4">
+                        Introduce la url de los productos que quieres comprobar que esten en oferta
+                    </Text>
+                    <TextInput
+                        className="bg-white p-3 rounded-2xl mb-4 w-full h-14" // Predefined height
+                        placeholder="URL"
+                        placeholderTextColor="#666"
+                        onChangeText={(text) => setUrl(text)}
+                        value={url}
+                    />
+                    <TouchableOpacity
+                        className="bg-orange-500 p-3 rounded-full mb-4 w-full h-14 justify-center"
+                        onPress={handleSubmit}
+                    >
+                        <Text className="text-white text-center font-bold">Enviar</Text>
+                    </TouchableOpacity>
                 </View>
             </ImageBackground>
             <StatusBar style="dark" />

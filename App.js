@@ -2,16 +2,23 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './components/LoginScreen';
-import SignUpScreen from './components/SignUpScreen';
-import { Inicio } from './components/Inicio';
+import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
+import PrincipalScreen from './screens/PrincipalScreen';
+import UserProfileScreen from './screens/UserProfileScreen';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Principal">
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{ headerShown: false }} // Oculta la cabecera en la pantalla de Welcome
+        />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -22,7 +29,12 @@ export default function App() {
           component={SignUpScreen}
           options={{ headerShown: false }} // Oculta la cabecera en la pantalla de SignUp
         />
-        <Stack.Screen name="Inicio" component={Inicio} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="UserProfile"
+          component={UserProfileScreen}
+          options={{ headerShown: false }} // Oculta la cabecera en la pantalla de SignUp
+        />
+        <Stack.Screen name="Principal" component={PrincipalScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>
