@@ -3,7 +3,6 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/LoginScreen';
-import SignUpScreen from './screens/SignUpScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import PrincipalScreen from './screens/PrincipalScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
@@ -13,28 +12,27 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Principal">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Welcome"
           component={WelcomeScreen}
-          options={{ headerShown: false }} // Oculta la cabecera en la pantalla de Welcome
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Login"
           component={LoginScreen}
-          options={{ headerShown: false }} // Oculta la cabecera en la pantalla de Login
-        />
-        <Stack.Screen
-          name="SignUp"
-          component={SignUpScreen}
-          options={{ headerShown: false }} // Oculta la cabecera en la pantalla de SignUp
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="UserProfile"
           component={UserProfileScreen}
-          options={{ headerShown: false }} // Oculta la cabecera en la pantalla de SignUp
+          options={{ headerShown: false }}
         />
-        <Stack.Screen name="Principal" component={PrincipalScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="Principal"
+          component={PrincipalScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
       <StatusBar style="auto" />
     </NavigationContainer>

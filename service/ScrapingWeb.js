@@ -1,4 +1,3 @@
-import { Alert } from 'react-native';
 import { BASE_URL } from '../constants/constants.js';
 import axios from 'axios';
 
