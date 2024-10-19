@@ -13,6 +13,7 @@ import EmailInput from '../components/EmailInput';
 import UrlInput from '../components/UrlInput';
 import SubmitButton from '../components/SubmitButton';
 import ImageGallery from '../components/ImageGallery';
+import AvatarUser from '../components/AvatarUser';
 
 export default function PrincipalScreen() {
   const [email, setEmail] = useState("");
@@ -42,16 +43,14 @@ export default function PrincipalScreen() {
     <ScrollView className="flex-1 px-5 w-full bg-slate-900">
       <View className="items-center w-full">
         <View className="items-center w-full">
-          <View className="bg-orange-500 w-16 h-16 rounded-full flex justify-center items-center self-start mt-10">
-            <Text className="text-white text-2xl font-bold">V</Text>
-          </View>
+          <AvatarUser inicial={"V"} classNameParams="justify-center items-center self-start my-10" />
           <EmailInput
             email={email}
             setEmail={setEmail}
             emailValido={emailValido}
             setEmailValido={setEmailValido}
           />
-          <SubmitButton onSubmit={handleSubmit} />
+          <SubmitButton onSubmit={handleSubmit} text={"Send"} />
           <UrlInput url={url} setUrl={setUrl} />
           <ImageGallery />
           <StatusBar style="light" />

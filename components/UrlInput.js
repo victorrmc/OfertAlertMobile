@@ -27,7 +27,6 @@ const UrlInput = ({ url, setUrl }) => {
                 value={url}
                 onChangeText={handleUrlChange}
                 className="border-orange-500 border-2 mb-4 p-3 rounded-2xl w-full h-14"
-                placeholderTextColor="white"
             />
         </View>
     );
