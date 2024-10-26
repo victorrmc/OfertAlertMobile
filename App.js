@@ -1,41 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './screens/LoginScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
 import PrincipalScreen from './screens/PrincipalScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
+import { AuthProvider, useAuth } from './context/authContext';
 
 const Stack = createStackNavigator();
 
+function AppNavigator() {
+  const { user } = useAuth();
+
+  return (
+    <Stack.Navigator
+      initialRouteName={user ? "Principal" : "Welcome"}
+      screenOptions={{
+        headerShown: false,
+        gestureEnabled: false // Deshabilita el gesto de retroceso
+      }}
+    >
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Principal" component={PrincipalScreen} />
+      <Stack.Screen name="UserProfile" component={UserProfileScreen} />
+    </Stack.Navigator>
+  );
+}
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Principal">
-        <Stack.Screen
-          name="Welcome"
-          component={WelcomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="UserProfile"
-          component={UserProfileScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Principal"
-          component={PrincipalScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-      <StatusBar style="auto" />
-    </NavigationContainer>
+    <AuthProvider>
+      <NavigationContainer>
+        <AppNavigator />
+        <StatusBar style="auto" />
+      </NavigationContainer>
+    </AuthProvider>
   );
 }
 

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Text,
   SafeAreaView,
@@ -9,27 +9,23 @@ import {
 } from "react-native";
 import scrapingOfert from "../service/ScrapingWeb";
 import { useNavigation } from '@react-navigation/native';
-import EmailInput from '../components/EmailInput';
 import UrlInput from '../components/UrlInput';
 import SubmitButton from '../components/SubmitButton';
 import ImageGallery from '../components/ImageGallery';
 import AvatarUser from '../components/AvatarUser';
 
 export default function PrincipalScreen() {
-  const [email, setEmail] = useState("");
-  const [emailValido, setEmailValido] = useState(true);
   const [url, setUrl] = useState("");
   const navigation = useNavigation();
 
   const handleSubmit = () => {
-    if (!emailValido) {
-      Alert.alert("Error", "Por favor, ingrese un correo electrónico válido.");
+    if (!url) {
+      Alert.alert("Error", "Por favor, ingrese una URL válida.");
       return;
     }
 
-    scrapingOfert({ url, email })
+    scrapingOfert({ url, email: user.email })
       .then(() => {
-        setEmail("");
         setUrl("");
         Alert.alert("Éxito", "Los datos se han enviado correctamente.");
       })
@@ -43,15 +39,9 @@ export default function PrincipalScreen() {
     <ScrollView className="flex-1 px-5 w-full bg-slate-900">
       <View className="items-center w-full">
         <View className="items-center w-full">
-          <AvatarUser inicial={"V"} classNameParams="justify-center items-center self-start my-10" />
-          <EmailInput
-            email={email}
-            setEmail={setEmail}
-            emailValido={emailValido}
-            setEmailValido={setEmailValido}
-          />
-          <SubmitButton onSubmit={handleSubmit} text={"Send"} />
+          <AvatarUser classNameParams="justify-center items-center self-start my-10" />
           <UrlInput url={url} setUrl={setUrl} />
+          <SubmitButton onSubmit={handleSubmit} text={"Send"} />
           <ImageGallery />
           <StatusBar style="light" />
         </View>

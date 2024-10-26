@@ -14,7 +14,6 @@ export default function WelcomeScreen() {
     console.log(Device.brand)
     console.log(Device.deviceType)
 
-
     return (
         <View className="flex-1 bg-slate-800 justify-center items-center">
             <SemicircleSVG width={width + 200} height={height / 2} style={{ position: 'absolute', top: 0, left: -width / 4 }} />
@@ -31,7 +30,7 @@ export default function WelcomeScreen() {
                 </Text>
                 <TouchableOpacity
                     className={`bg-orange-500 w-screen rounded-full flex-row items-center justify-center absolute -bottom-4 `}
-                    onPress={() => navigation.navigate('UserProfile')}
+                    onPress={() => navigation.navigate('Login')}
                     style={{ marginBottom: 20 }}
                 >
                     <Text className={`text-slate-900 text-3xl font-bold absolute top-4 ${Device.deviceType === 2 ? 'right-40 text-5xl top-8' : 'right-12'} `}>Let's go</Text>

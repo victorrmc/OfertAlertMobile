@@ -1,33 +1,56 @@
-import React from 'react';
-import { Alert, View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
 import TextInputDefault from './TextInputDefault';
+import { allowedDomains } from './ImageGallery';
+import { extractDomainFromUrl } from '../utils/urlValidationUtils';
 
 const UrlInput = ({ url, setUrl }) => {
-    const validateUrl = (url) => {
-        const urlRegex = /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}\/?.*$/;
-        const allowedDomains = ['asos.com'];
-        const isValidUrl = urlRegex.test(url);
-        const domain = url.split('/')[2];
-        const isAllowedDomain = allowedDomains.some(allowed => domain.includes(allowed));
+    const [error, setError] = useState('');
 
-        return isValidUrl && isAllowedDomain;
-    };
+    const validateUrl = (text) => {
+        setError('');
 
-    const handleUrlChange = (text) => {
-        setUrl(text);
-        if (!validateUrl(text)) {
-            Alert.alert("Error", "Por favor, ingrese una URL válida.");
+        if (!text) {
+            setUrl(text);
+            return;
         }
+
+        const domain = extractDomainFromUrl(formattedUrl);
+
+        if (!domain) {
+            setError('Por favor, introduce una URL válida');
+            setUrl(text);
+            return;
+        }
+
+        const isDomainAllowed = allowedDomains.some(
+            allowedDomain => domain.includes(allowedDomain)
+        );
+
+        if (!isDomainAllowed) {
+            setError('Esta tienda no está soportada actualmente');
+        }
+
+        setUrl(formattedUrl);
     };
 
     return (
         <View className="w-full">
             <TextInputDefault
-                placeholder="https://www.asos.com/es/jack-jones/item/324"
+                placeholder="https://www.asos.com/es/nike/zapatillas-123"
                 value={url}
-                onChangeText={handleUrlChange}
-                className="border-orange-500 border-2 mb-4 p-3 rounded-2xl w-full h-14"
+                onChangeText={validateUrl}
+                className={`border-2 mb-4 p-3 rounded-2xl w-full h-14 ${error ? 'border-red-500' : 'border-orange-500'
+                    }`}
+                autoCapitalize="none"
+                autoCorrect={false}
+                keyboardType="url"
             />
+            {error && (
+                <Text className="text-red-500 mb-3">
+                    {error}
+                </Text>
+            )}
         </View>
     );
 };

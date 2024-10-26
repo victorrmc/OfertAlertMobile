@@ -5,7 +5,7 @@ import AvatarUser from './AvatarUser';
 
 const ProfileHeader = () => (
     <View className="flex-row items-center mb-6">
-        <AvatarUser inicial={"V"} classNameParams="mr-4" />
+        <AvatarUser classNameParams="mr-4" />
         <View className="top-3">
             <Text className="text-white text-2xl font-bold">User Profile</Text>
             <Text className="text-gray-300 mb-6 font-bold">Manage the settings and plan</Text>

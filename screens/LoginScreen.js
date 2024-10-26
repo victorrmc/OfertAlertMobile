@@ -2,27 +2,37 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, Alert, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import { useAuth } from '../context/authContext';
 import EmailInput from '../components/EmailInput';
 import SubmitButton from '../components/SubmitButton';
-import TextInputDefault from '../components/TextInputDefault';
 import SocialButton from '../components/SocialButton';
 
-export default function SignUpScreen() {
+export default function LoginScreen() {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [repeatPassword, setRepeatPassword] = useState('');
     const [emailValido, setEmailValido] = useState(true);
     const navigation = useNavigation();
+    const { login } = useAuth();
 
     const handleSignUp = () => {
-        if (email === '' || password === '' || repeatPassword === '') {
-            Alert.alert('Error', 'Por favor, completa todos los campos.');
-        } else if (password !== repeatPassword) {
-            Alert.alert('Error', 'Las contraseñas no coinciden.');
-        } else {
-            // Lógica para manejar el registro
-            Alert.alert('Registro exitoso', `Bienvenido, ${email}`);
-            navigation.navigate('Inicio');
+        if (email.trim() === '') {
+            Alert.alert('Error', 'Por favor, completa el campo de correo.');
+            return;
+        }
+
+        if (!emailValido) {
+            Alert.alert('Error', 'Por favor, ingresa un correo electrónico válido.');
+            return;
+        }
+
+        try {
+            // Realizar el inicio de sesión
+            login(email.trim());
+            navigation.reset({
+                index: 0,
+                routes: [{ name: 'Principal' }],
+            });
+        } catch (error) {
+            Alert.alert('Error', 'Hubo un problema al iniciar sesión. Por favor, intente de nuevo.');
         }
     };
 
@@ -35,7 +45,7 @@ export default function SignUpScreen() {
                 <View className="bg-gray-800 opacity-90 p-5 rounded-3xl w-11/12 items-center">
                     <View className="flex-row items-center justify-center mb-5">
                         <Image source={require('../public/img/logo.png')} className="w-12 h-16 mr-3" />
-                        <Text className="text-white text-lg font-bold">Continue with the email</Text>
+                        <Text className="text-white text-lg font-bold">Continue with email</Text>
                     </View>
                     <EmailInput
                         email={email}
@@ -45,8 +55,14 @@ export default function SignUpScreen() {
                     />
                     <SubmitButton onSubmit={handleSignUp} text="Continue" />
                     <Text className="text-gray-200 text-center mb-4">or Continue with</Text>
-                    <SocialButton imagePath={require('../public/img/google.png')} text="Continue with Google" />
-                    <SocialButton imagePath={require('../public/img/apple.png')} text="Continue with Apple" />
+                    <SocialButton
+                        imagePath={require('../public/img/google.png')}
+                        text="Continue with Google"
+                    />
+                    <SocialButton
+                        imagePath={require('../public/img/apple.png')}
+                        text="Continue with Apple"
+                    />
                 </View>
             </ImageBackground>
             <StatusBar style="light" />

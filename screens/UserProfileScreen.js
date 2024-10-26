@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import { useAuth } from '../context/authContext'; // Ensure the casing matches the actual file name
 import ProfileHeader from '../components/ProfileHeader';
 import NotificationOptions from '../components/NotificationOptions';
 import PlanOption from '../components/PlanOption';
@@ -11,6 +12,7 @@ const REMINDERS_OFFERS = "REMINDERS_OFFERS";
 
 export default function UserProfileScreen() {
     const navigation = useNavigation();
+    const { logout, user } = useAuth();
     const [selectedPlan, setSelectedPlan] = useState('free');
     const [voice, setVoice] = useState(REMINDERS_OFFERS);
 
@@ -23,19 +25,17 @@ export default function UserProfileScreen() {
     };
 
     const handleSaveChanges = () => {
-        // Implementar lógica para guardar cambios
-        console.log('Cambios guardados');
+        Alert.alert('Success', 'Changes saved successfully');
     };
 
     const handleLogout = () => {
-        // Implementar lógica para cerrar sesión
-        console.log('Sesión cerrada');
-        navigation.navigate('Login');
+        logout();
+        navigation.navigate('Welcome');
     };
 
     return (
         <ScrollView className="flex-1 bg-slate-900 p-6">
-            <ProfileHeader />
+            <ProfileHeader email={user?.email} />
             <NotificationOptions voice={voice} handleSavePreferences={handleSavePreferences} />
 
             <Text className="text-white text-2xl font-bold mb-6">Choose Your Plan</Text>
