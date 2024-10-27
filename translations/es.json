@@ -1,0 +1,60 @@
+{
+    "welcome": {
+        "title": "OfferAlert",
+        "subtitle": "Tus Ofertas Favoritas, Todo en un Solo Lugar",
+        "description": "Descubre las mejores ofertas y descuentos sin esfuerzo. Mantente actualizado con las últimas ofertas y no te pierdas nunca una gran oportunidad.",
+        "button": "Comenzar"
+    },
+    "login": {
+        "title": "Continuar con email",
+        "continueWith": "o Continuar con",
+        "googleButton": "Continuar con Google",
+        "appleButton": "Continuar con Apple",
+        "emailPlaceholder": "victor@gmail.com",
+        "continueButton": "Continuar"
+    },
+    "profile": {
+        "title": "Perfil de Usuario",
+        "subtitle": "Administra la configuración y el plan",
+        "notifications": "Notificaciones",
+        "language": "Idioma",
+        "notificationOptions": {
+            "muted": "Sin notificaciones 🤫",
+            "onlyOffers": "Solo ofertas de productos 🎁",
+            "all": "Recordatorios y ofertas 🤩"
+        },
+        "plans": {
+            "title": "Elige tu Plan",
+            "basic": {
+                "title": "Básico",
+                "price": "0.99€",
+                "features": {
+                    "check": "Revisión diaria de ofertas",
+                    "products": "100 productos máximo",
+                    "ads": "Sin anuncios"
+                }
+            },
+            "premium": {
+                "title": "Premium",
+                "price": "2.99€",
+                "features": {
+                    "check": "4 revisiones diarias",
+                    "products": "250 productos máximo",
+                    "ads": "Sin anuncios"
+                }
+            }
+        },
+        "selected": "Seleccionado",
+        "saveButton": "Guardar cambios",
+        "logoutButton": "Cerrar sesión"
+    },
+    "principal": {
+        "urlPlaceholder": "https://www.asos.com/es/jack-jones/item/324",
+        "sendButton": "Enviar"
+    },
+    "errors": {
+        "emailFormat": "El formato del correo no es correcto.",
+        "urlFormat": "Por favor, ingrese una URL válida.",
+        "requiredFields": "Por favor, completa todos los campos."
+    }
+}

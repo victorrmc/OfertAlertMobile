@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "OfertAlertMobile",
-    "slug": "OfertAlertMobile",
+    "name": "OfferAlert",
+    "slug": "OfferAlert",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

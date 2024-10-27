@@ -1,0 +1,60 @@
+{
+    "welcome": {
+        "title": "OfferAlert",
+        "subtitle": "Your Favorite Deals, All in One Place",
+        "description": "Discover the best deals and discounts effortlessly. Stay updated with the latest offers and never miss a great deal again!",
+        "button": "Let's go"
+    },
+    "login": {
+        "title": "Continue with the email",
+        "continueWith": "or Continue with",
+        "googleButton": "Continue with Google",
+        "appleButton": "Continue with Apple",
+        "emailPlaceholder": "victor@gmail.com",
+        "continueButton": "Continue"
+    },
+    "profile": {
+        "title": "User Profile",
+        "subtitle": "Manage the settings and plan",
+        "notifications": "Notifications",
+        "language": "Language",
+        "notificationOptions": {
+            "muted": "No notification 🤫",
+            "onlyOffers": "Product offers only 🎁",
+            "all": "Reminders and offers 🤩"
+        },
+        "plans": {
+            "title": "Choose Your Plan",
+            "basic": {
+                "title": "Basic",
+                "price": "0.99€",
+                "features": {
+                    "check": "Daily offer check",
+                    "products": "100 products max",
+                    "ads": "Ad-free experience"
+                }
+            },
+            "premium": {
+                "title": "Premium",
+                "price": "2.99€",
+                "features": {
+                    "check": "4x daily offer checks",
+                    "products": "250 products max",
+                    "ads": "Ad-free experience"
+                }
+            }
+        },
+        "selected": "Selected",
+        "saveButton": "Save changes",
+        "logoutButton": "Log out"
+    },
+    "principal": {
+        "urlPlaceholder": "https://www.asos.com/es/jack-jones/item/324",
+        "sendButton": "Send"
+    },
+    "errors": {
+        "emailFormat": "The email format is not correct.",
+        "urlFormat": "Please enter a valid URL.",
+        "requiredFields": "Please complete all fields."
+    }
+}

@@ -6,26 +6,25 @@ import { useAuth } from '../context/authContext';
 import EmailInput from '../components/EmailInput';
 import SubmitButton from '../components/SubmitButton';
 import SocialButton from '../components/SocialButton';
+import { useTranslation } from 'react-i18next';
 
 export default function LoginScreen() {
     const [email, setEmail] = useState('');
     const [emailValido, setEmailValido] = useState(true);
     const navigation = useNavigation();
     const { login } = useAuth();
+    const { t } = useTranslation();
 
     const handleSignUp = () => {
         if (email.trim() === '') {
             Alert.alert('Error', 'Por favor, completa el campo de correo.');
             return;
         }
-
         if (!emailValido) {
             Alert.alert('Error', 'Por favor, ingresa un correo electrónico válido.');
             return;
         }
-
         try {
-            // Realizar el inicio de sesión
             login(email.trim());
             navigation.reset({
                 index: 0,
@@ -45,7 +44,9 @@ export default function LoginScreen() {
                 <View className="bg-gray-800 opacity-90 p-5 rounded-3xl w-11/12 items-center">
                     <View className="flex-row items-center justify-center mb-5">
                         <Image source={require('../public/img/logo.png')} className="w-12 h-16 mr-3" />
-                        <Text className="text-white text-lg font-bold">Continue with email</Text>
+                        <Text className="text-white text-lg font-bold">
+                            {t('login.title')}
+                        </Text>
                     </View>
                     <EmailInput
                         email={email}
@@ -53,15 +54,15 @@ export default function LoginScreen() {
                         emailValido={emailValido}
                         setEmailValido={setEmailValido}
                     />
-                    <SubmitButton onSubmit={handleSignUp} text="Continue" />
-                    <Text className="text-gray-200 text-center mb-4">or Continue with</Text>
+                    <SubmitButton onSubmit={handleSignUp} text={t('login.continueButton')} />
+                    <Text className="text-gray-200 text-center mb-4">{t('login.orContinue')}</Text>
                     <SocialButton
                         imagePath={require('../public/img/google.png')}
-                        text="Continue with Google"
+                        text={t('login.googleButton')}
                     />
                     <SocialButton
                         imagePath={require('../public/img/apple.png')}
-                        text="Continue with Apple"
+                        text={t('login.appleButton')}
                     />
                 </View>
             </ImageBackground>

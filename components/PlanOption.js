@@ -2,8 +2,11 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Check, Zap, Crown, Star } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useTranslation } from 'react-i18next';
 
 const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
+    const { t } = useTranslation();
+
     const renderPlanContent = () => {
         switch (plan) {
             case 'basic':
@@ -15,9 +18,9 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                 onPress={() => handlePlanChange('basic')}
                             >
                                 <View className="flex-row justify-between items-center mb-4">
-                                    <Text className="text-white font-bold text-2xl">Basic</Text>
+                                    <Text className="text-white font-bold text-2xl">{t('profile.plans.basic.title')}</Text>
                                     <View className="flex-row items-center">
-                                        {selectedPlan === 'basic' && <Text className="text-white p-2 rounded-2xl bg-orange-400 mr-2">Selected</Text>}
+                                        {selectedPlan === 'basic' && <Text className="text-white p-2 rounded-2xl bg-orange-400 mr-2">{t('profile.plans.selected')}</Text>}
                                         <Zap size={28} color="#60a5fa" fill="#60a5fa" />
                                     </View>
                                 </View>

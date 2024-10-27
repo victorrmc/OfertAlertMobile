@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import TextInputDefault from './TextInputDefault';
 
+
 const EmailInput = ({ email, setEmail, emailValido, setEmailValido }) => {
 
     const validateEmail = (email) => {

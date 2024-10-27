@@ -7,6 +7,8 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import PrincipalScreen from './screens/PrincipalScreen';
 import UserProfileScreen from './screens/UserProfileScreen';
 import { AuthProvider, useAuth } from './context/authContext';
+import { I18nextProvider } from 'react-i18next';
+import i18n from './translations/i18n';
 
 const Stack = createStackNavigator();
 
@@ -31,12 +33,14 @@ function AppNavigator() {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <NavigationContainer>
-        <AppNavigator />
-        <StatusBar style="auto" />
-      </NavigationContainer>
-    </AuthProvider>
+    <I18nextProvider i18n={i18n}>
+      <AuthProvider>
+        <NavigationContainer>
+          <AppNavigator />
+          <StatusBar style="auto" />
+        </NavigationContainer>
+      </AuthProvider>
+    </I18nextProvider>
   );
 }
 
