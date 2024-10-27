@@ -6,33 +6,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
     const renderPlanContent = () => {
         switch (plan) {
-            case 'free':
-                return (
-                    <View className="bg-slate-800 p-4 rounded-2xl mb-6 shadow-lg">
-                        <TouchableOpacity
-                            className="p-4 rounded-xl"
-                            onPress={() => handlePlanChange('free')}
-                        >
-                            <View className="flex-row justify-between items-center mb-4">
-                                <Text className="text-white font-bold text-xl mb-2">Free</Text>
-                                {selectedPlan === 'free' && <Text className="text-white p-2 rounded-2xl bg-orange-400 mr-2">Selected</Text>}
-                            </View>
-                            <Text className="text-gray-300 text-3xl font-bold mb-4">0€</Text>
-                            <View className="flex-row items-center mb-2">
-                                <Check size={20} color="#a3e635" />
-                                <Text className="text-gray-300 ml-2">Every 2 days check</Text>
-                            </View>
-                            <View className="flex-row items-center mb-2">
-                                <Check size={20} color="#a3e635" />
-                                <Text className="text-gray-300 ml-2">Maximum 10 products</Text>
-                            </View>
-                            <View className="flex-row items-center">
-                                <Check size={20} color="#a3e635" />
-                                <Text className="text-gray-300 ml-2">Contains ads</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                );
             case 'basic':
                 return (
                     <View className="bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 p-1 rounded-2xl mb-6 shadow-lg">
@@ -48,7 +21,7 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                         <Zap size={28} color="#60a5fa" fill="#60a5fa" />
                                     </View>
                                 </View>
-                                <Text className="text-white text-xl font-bold mb-6">0.99€</Text>
+                                <Text className="text-white text-xl font-bold mb-6">4.99€</Text>
                                 <View className="bg-blue-500/20 p-4 rounded-lg mb-4">
                                     <View className="flex-row items-center mb-2">
                                         <Check size={24} color="#60a5fa" />
@@ -57,10 +30,6 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                     <View className="flex-row items-center mb-2">
                                         <Check size={24} color="#60a5fa" />
                                         <Text className="text-white ml-2 text-lg">100 products max</Text>
-                                    </View>
-                                    <View className="flex-row items-center">
-                                        <Check size={24} color="#60a5fa" />
-                                        <Text className="text-white ml-2 text-lg">Ad-free experience</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -82,7 +51,7 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                         <Crown size={32} color="#fbbf24" fill="#fbbf24" />
                                     </View>
                                 </View>
-                                <Text className="text-white text-3xl font-bold mb-6">2.99€</Text>
+                                <Text className="text-white text-3xl font-bold mb-6">6.99€</Text>
                                 <View className="bg-yellow-500/20 p-4 rounded-lg mb-4">
                                     <View className="flex-row items-center mb-3">
                                         <Star size={28} color="#fbbf24" fill="#fbbf24" />
@@ -91,10 +60,6 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                     <View className="flex-row items-center mb-3">
                                         <Star size={28} color="#fbbf24" fill="#fbbf24" />
                                         <Text className="text-white ml-2 text-xl">250 products max</Text>
-                                    </View>
-                                    <View className="flex-row items-center">
-                                        <Star size={28} color="#fbbf24" fill="#fbbf24" />
-                                        <Text className="text-white ml-2 text-xl">Ad-free experience</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>

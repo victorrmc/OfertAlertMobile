@@ -39,7 +39,7 @@ export default function PrincipalScreen() {
     <ScrollView className="flex-1 px-5 w-full bg-slate-900">
       <View className="items-center w-full">
         <View className="items-center w-full">
-          <AvatarUser classNameParams="justify-center items-center self-start my-10" />
+          <AvatarUser classNameParams="self-start mb-10" />
           <UrlInput url={url} setUrl={setUrl} />
           <SubmitButton onSubmit={handleSubmit} text={"Send"} />
           <ImageGallery />

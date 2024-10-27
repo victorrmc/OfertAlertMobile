@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { useAuth } from '../context/authContext'; // Ensure the casing matches the actual file name
+import { useAuth } from '../context/authContext';
 import ProfileHeader from '../components/ProfileHeader';
 import NotificationOptions from '../components/NotificationOptions';
 import PlanOption from '../components/PlanOption';
@@ -13,7 +13,7 @@ const REMINDERS_OFFERS = "REMINDERS_OFFERS";
 export default function UserProfileScreen() {
     const navigation = useNavigation();
     const { logout, user } = useAuth();
-    const [selectedPlan, setSelectedPlan] = useState('free');
+    const [selectedPlan, setSelectedPlan] = useState('');
     const [voice, setVoice] = useState(REMINDERS_OFFERS);
 
     const handlePlanChange = (plan) => {
@@ -39,7 +39,6 @@ export default function UserProfileScreen() {
             <NotificationOptions voice={voice} handleSavePreferences={handleSavePreferences} />
 
             <Text className="text-white text-2xl font-bold mb-6">Choose Your Plan</Text>
-            <PlanOption plan="free" selectedPlan={selectedPlan} handlePlanChange={handlePlanChange} />
             <PlanOption plan="basic" selectedPlan={selectedPlan} handlePlanChange={handlePlanChange} />
             <PlanOption plan="premium" selectedPlan={selectedPlan} handlePlanChange={handlePlanChange} />
 

@@ -13,7 +13,7 @@ const AvatarUser = ({ classNameParams = '', textClassName = '' }) => {
     };
 
     return (
-        <TouchableOpacity onPress={handlePress} className={`bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center ${classNameParams}`}>
+        <TouchableOpacity onPress={handlePress} className={`bg-orange-500 w-16 h-16 rounded-full flex items-center justify-center mt-10 ${classNameParams}`}>
             <Text className={`text-white text-2xl font-bold ${textClassName}`}>{user?.email[0].toUpperCase()}</Text>
         </TouchableOpacity>
     );
