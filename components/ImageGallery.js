@@ -14,7 +14,6 @@ export const storeLogos = [
     { source: require('../public/img/LogosMarcas/ElCorteIngles.png'), url: 'https://www.elcorteingles.es' },
 ];
 
-// Exportar los dominios permitidos
 export const allowedDomains = storeLogos.map(logo => extractDomainFromUrl(logo.url));
 
 const ImageGallery = () => {
@@ -29,7 +28,7 @@ const ImageGallery = () => {
     );
 
     return (
-        <View className="mt-4 w-full flex-row justify-between overflow-hidden">
+        <View className="mt-4 w-full flex-row justify-center space-x-3 overflow-hidden">
             <View className="space-y-2">
                 {storeLogos.slice(0, 6).map((logo, index) => renderImage(logo, index))}
             </View>

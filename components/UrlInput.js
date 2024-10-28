@@ -3,9 +3,11 @@ import { View, Text } from 'react-native';
 import TextInputDefault from './TextInputDefault';
 import { allowedDomains } from './ImageGallery';
 import { extractDomainFromUrl } from '../utils/urlValidationUtils';
+import { useTranslation } from 'react-i18next';
 
 const UrlInput = ({ url, setUrl }) => {
     const [error, setError] = useState('');
+    const { t } = useTranslation();
 
     const validateUrl = (text) => {
         setError('');
@@ -15,10 +17,10 @@ const UrlInput = ({ url, setUrl }) => {
             return;
         }
 
-        const domain = extractDomainFromUrl(formattedUrl);
+        const domain = extractDomainFromUrl(text);
 
         if (!domain) {
-            setError('Por favor, introduce una URL válida');
+            setError(t('errors.urlFormat'));
             setUrl(text);
             return;
         }
@@ -28,20 +30,19 @@ const UrlInput = ({ url, setUrl }) => {
         );
 
         if (!isDomainAllowed) {
-            setError('Esta tienda no está soportada actualmente');
+            setError(t('errors.unsupportedStore'));
         }
 
-        setUrl(formattedUrl);
+        setUrl(text);
     };
 
     return (
         <View className="w-full">
             <TextInputDefault
-                placeholder="https://www.asos.com/es/nike/zapatillas-123"
+                placeholder={t('principal.urlPlaceholder')}
                 value={url}
                 onChangeText={validateUrl}
-                className={`border-2 mb-4 p-3 rounded-2xl w-full h-14 ${error ? 'border-red-500' : 'border-orange-500'
-                    }`}
+                className={`border-2 mb-4 p-3 rounded-2xl w-full h-14 ${error ? 'border-red-500' : 'border-orange-500'}`}
                 autoCapitalize="none"
                 autoCorrect={false}
                 keyboardType="url"

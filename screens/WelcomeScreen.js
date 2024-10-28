@@ -36,7 +36,7 @@ export default function WelcomeScreen() {
                     onPress={() => navigation.navigate('Login')}
                     style={{ marginBottom: 20 }}
                 >
-                    <Text className={`text-slate-900 text-3xl font-bold absolute top-4 ${Device.deviceType === 2 ? 'right-40 text-5xl top-8' : 'right-12'}`}>
+                    <Text className={`text-slate-900 text-3xl font-bold absolute top-4 ${Device.deviceType === 2 ? 'right-36 text-5xl top-8' : 'right-14'}`}>
                         {t('welcome.button')}
                     </Text>
                     <ArrowSVG width={Device.deviceType === 2 ? 800 : width} height={Device.deviceType === 2 ? 150 : 100} />

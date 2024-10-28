@@ -48,12 +48,32 @@
         "saveButton": "Save changes",
         "logoutButton": "Log out"
     },
+    "alerts": {
+        "success": {
+            "title": "Success",
+            "dataSent": "Data has been sent successfully"
+        },
+        "error": {
+            "title": "Error",
+            "invalidUrl": "Please enter a valid URL",
+            "sendingData": "There was a problem sending the data. Please try again",
+            "generic": "An error has occurred"
+        }
+    },
+    "buttons": {
+        "ok": "OK",
+        "cancel": "Cancel"
+    },
     "principal": {
         "urlPlaceholder": "https://www.asos.com/es/jack-jones/item/324",
         "sendButton": "Send"
     },
     "errors": {
-        "emailFormat": "The email format is not correct.",
+        "login": {
+            "emailblank": "Please, insert a email.",
+            "emailFormat": "Please, insert a correct format email.",
+            "generic": "An error occurred while logging in. Please try again."
+        },
         "urlFormat": "Please enter a valid URL.",
         "requiredFields": "Please complete all fields."
     }

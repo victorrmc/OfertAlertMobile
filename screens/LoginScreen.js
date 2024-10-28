@@ -17,11 +17,11 @@ export default function LoginScreen() {
 
     const handleSignUp = () => {
         if (email.trim() === '') {
-            Alert.alert('Error', 'Por favor, completa el campo de correo.');
+            Alert.alert('Error', t('errors.login.emailblank'));
             return;
         }
         if (!emailValido) {
-            Alert.alert('Error', 'Por favor, ingresa un correo electrónico válido.');
+            Alert.alert('Error', t('errors.login.emailFormat'));
             return;
         }
         try {
@@ -31,7 +31,7 @@ export default function LoginScreen() {
                 routes: [{ name: 'Principal' }],
             });
         } catch (error) {
-            Alert.alert('Error', 'Hubo un problema al iniciar sesión. Por favor, intente de nuevo.');
+            Alert.alert('Error', t('errors.login.generic'));
         }
     };
 
@@ -55,7 +55,7 @@ export default function LoginScreen() {
                         setEmailValido={setEmailValido}
                     />
                     <SubmitButton onSubmit={handleSignUp} text={t('login.continueButton')} />
-                    <Text className="text-gray-200 text-center mb-4">{t('login.orContinue')}</Text>
+                    <Text className="text-gray-200 text-center mb-4">{t('login.continueWith')}</Text>
                     <SocialButton
                         imagePath={require('../public/img/google.png')}
                         text={t('login.googleButton')}

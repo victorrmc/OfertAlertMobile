@@ -13,25 +13,41 @@ import UrlInput from '../components/UrlInput';
 import SubmitButton from '../components/SubmitButton';
 import ImageGallery from '../components/ImageGallery';
 import AvatarUser from '../components/AvatarUser';
+import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/authContext';
 
 export default function PrincipalScreen() {
+  const { user } = useAuth();
   const [url, setUrl] = useState("");
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   const handleSubmit = () => {
     if (!url) {
-      Alert.alert("Error", "Por favor, ingrese una URL válida.");
+      Alert.alert(
+        t('alerts.error.title'),
+        t('alerts.error.invalidUrl'),
+        [{ text: t('buttons.ok') }]
+      );
       return;
     }
 
     scrapingOfert({ url, email: user.email })
       .then(() => {
         setUrl("");
-        Alert.alert("Éxito", "Los datos se han enviado correctamente.");
+        Alert.alert(
+          t('alerts.success.title'),
+          t('alerts.success.dataSent'),
+          [{ text: t('buttons.ok') }]
+        );
       })
       .catch((error) => {
         console.error("Error al enviar los datos:", error);
-        Alert.alert("Error", "Hubo un problema al enviar los datos. Por favor, intente de nuevo.");
+        Alert.alert(
+          t('alerts.error.title'),
+          t('alerts.error.sendingData'),
+          [{ text: t('buttons.ok') }]
+        );
       });
   };
 
