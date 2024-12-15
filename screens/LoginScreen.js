@@ -7,6 +7,7 @@ import EmailInput from '../components/EmailInput';
 import SubmitButton from '../components/SubmitButton';
 import SocialButton from '../components/SocialButton';
 import { useTranslation } from 'react-i18next';
+import AuthService from '../services/authService';
 
 export default function LoginScreen() {
     const [email, setEmail] = useState('');
@@ -15,7 +16,7 @@ export default function LoginScreen() {
     const { login } = useAuth();
     const { t } = useTranslation();
 
-    const handleSignUp = () => {
+    const handleSignUp = async () => {
         if (email.trim() === '') {
             Alert.alert('Error', t('errors.login.emailblank'));
             return;
@@ -25,11 +26,12 @@ export default function LoginScreen() {
             return;
         }
         try {
-            login(email.trim());
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'Principal' }],
-            });
+            const result = await AuthService.sendVerificationCode(email.trim());
+            if (result.success) {
+                navigation.navigate('Verification', { email: email.trim() });
+            } else {
+                Alert.alert('Error', t('errors.login.generic'));
+            }
         } catch (error) {
             Alert.alert('Error', t('errors.login.generic'));
         }

@@ -68,6 +68,17 @@
         "urlPlaceholder": "https://www.asos.com/es/jack-jones/item/324",
         "sendButton": "Send"
     },
+    "verification": {
+        "title": "Verify Your Email",
+        "instructions": "Enter the 6-digit code sent to {email}",
+        "verify": "Verify Code",
+        "resend": "Resend Code",
+        "codeSent": "New verification code sent",
+        "error": "Verification Error",
+        "invalidCodeLength": "Please enter all 6 digits",
+        "sendError": "Failed to send verification code",
+        "verifyError": "Failed to verify code"
+    },
     "errors": {
         "login": {
             "emailblank": "Please, insert a email.",

@@ -69,6 +69,17 @@
         "ok": "Aceptar",
         "cancel": "Cancelar"
     },
+    "verification": {
+        "title": "Verifica tu Email",
+        "instructions": "Introduce el código de 6 dígitos enviado a {email}",
+        "verify": "Verificar Código",
+        "resend": "Reenviar Código",
+        "codeSent": "Nuevo código de verificación enviado",
+        "error": "Error de Verificación",
+        "invalidCodeLength": "Por favor, introduce los 6 dígitos",
+        "sendError": "Error al enviar el código de verificación",
+        "verifyError": "Error al verificar el código"
+    },
     "errors": {
         "login": {
             "emailblank": "Por favor, ingresa un correo electrónico.",
