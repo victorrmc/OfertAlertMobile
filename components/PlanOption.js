@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { Check, Zap, Crown, Star } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
 
@@ -21,18 +20,15 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                     <Text className="text-white font-bold text-2xl">{t('profile.plans.basic.title')}</Text>
                                     <View className="flex-row items-center">
                                         {selectedPlan === 'basic' && <Text className="text-white p-2 rounded-2xl bg-orange-400 mr-2">{t('profile.selected')}</Text>}
-                                        <Zap size={28} color="#60a5fa" fill="#60a5fa" />
                                     </View>
                                 </View>
                                 <Text className="text-white text-xl font-bold mb-6">{t('profile.plans.basic.price')}</Text>
                                 <View className="bg-blue-500/20 p-4 rounded-lg mb-4">
                                     <View className="flex-row items-center mb-2">
-                                        <Check size={24} color="#60a5fa" />
-                                        <Text className="text-white ml-2 text-lg">{t('profile.plans.basic.features.check')}</Text>
+                                        <Text className="text-white text-lg">{t('profile.plans.basic.features.check')}</Text>
                                     </View>
                                     <View className="flex-row items-center mb-2">
-                                        <Check size={24} color="#60a5fa" />
-                                        <Text className="text-white ml-2 text-lg">{t('profile.plans.basic.features.products')}</Text>
+                                        <Text className="text-white text-lg">{t('profile.plans.basic.features.products')}</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -51,18 +47,15 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                                     <Text className="text-white font-bold text-3xl">{t('profile.plans.premium.title')}</Text>
                                     <View className="flex-row items-center">
                                         {selectedPlan === 'premium' && <Text className="text-white p-2 rounded-2xl bg-orange-400 mr-2">{t('profile.selected')}</Text>}
-                                        <Crown size={32} color="#fbbf24" fill="#fbbf24" />
                                     </View>
                                 </View>
                                 <Text className="text-white text-3xl font-bold mb-6">{t('profile.plans.premium.price')}</Text>
                                 <View className="bg-yellow-500/20 p-4 rounded-lg mb-4">
                                     <View className="flex-row items-center mb-3">
-                                        <Star size={28} color="#fbbf24" fill="#fbbf24" />
-                                        <Text className="text-white ml-2 text-xl">{t('profile.plans.premium.features.check')}</Text>
+                                        <Text className="text-white text-xl">{t('profile.plans.premium.features.check')}</Text>
                                     </View>
                                     <View className="flex-row items-center mb-3">
-                                        <Star size={28} color="#fbbf24" fill="#fbbf24" />
-                                        <Text className="text-white ml-2 text-xl">{t('profile.plans.premium.features.products')}</Text>
+                                        <Text className="text-white text-xl">{t('profile.plans.premium.features.products')}</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>

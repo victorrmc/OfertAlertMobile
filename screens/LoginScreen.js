@@ -7,7 +7,7 @@ import EmailInput from '../components/EmailInput';
 import SubmitButton from '../components/SubmitButton';
 import SocialButton from '../components/SocialButton';
 import { useTranslation } from 'react-i18next';
-import AuthService from '../services/authService';
+import AuthService from '../service/authService';
 
 export default function LoginScreen() {
     const [email, setEmail] = useState('');
