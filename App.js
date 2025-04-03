@@ -9,11 +9,29 @@ import UserProfileScreen from './screens/UserProfileScreen';
 import { AuthProvider, useAuth } from './context/authContext';
 import { I18nextProvider } from 'react-i18next';
 import i18n from './translations/i18n';
+import { useFonts } from 'expo-font';
+import { useEffect } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
 
 const Stack = createStackNavigator();
 
 function AppNavigator() {
   const { user } = useAuth();
+  const [loaded, error] = useFonts({
+    'Outfit-Bold': require('./public/Fonts/Outfit-Bold.ttf'),
+    'Outfit-Medium': require('./public/Fonts/Outfit-Medium.ttf'),
+    'Outfit-Regular': require('./public/Fonts/Outfit-Regular.ttf')
+  })
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error])
+
+  if (!loaded && !error) {
+    return null;
+  }
 
   return (
     <Stack.Navigator

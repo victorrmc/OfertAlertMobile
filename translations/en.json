@@ -1,8 +1,10 @@
 {
     "welcome": {
         "title": "OfferAlert",
-        "subtitle": "Your Favorite Deals, All in One Place",
-        "description": "Discover the best deals and discounts effortlessly. Stay updated with the latest offers and never miss a great deal again!",
+        "subtitle1": "Your Favorite ",
+        "deals": "Deals",
+        "subtitle2": ",\n  All in One Place",
+        "description": "Never miss when the product you want goes on sale. OfferAlert will notify you as soon as the product goes on sale.",
         "button": "Let's go"
     },
     "login": {

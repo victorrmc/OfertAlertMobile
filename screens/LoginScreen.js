@@ -26,6 +26,7 @@ export default function LoginScreen() {
             return;
         }
         try {
+            navigation.navigate('PrincipalScreen', { email: email.trim() });
             const result = await AuthService.sendVerificationCode(email.trim());
             if (result.success) {
                 navigation.navigate('Verification', { email: email.trim() });

@@ -1,9 +1,11 @@
 {
     "welcome": {
         "title": "OfferAlert",
-        "subtitle": "Tus Ofertas Favoritas, Todo en un Solo Lugar",
-        "description": "Descubre las mejores ofertas y descuentos sin esfuerzo. Mantente actualizado con las últimas ofertas y no te pierdas nunca una gran oportunidad.",
-        "button": "Comenzar"
+        "subtitle1": "Tus ",
+        "deals": "Ofertas",
+        "subtitle2": " Favoritas, \n Todo en un Solo Lugar",
+        "description": "No te pierdas nunca más cuando el producto que quieres se pone en oferta. OfferAlert te avisara en cuanto el producto se ponga en descuento",
+        "button": "Vamos"
     },
     "login": {
         "title": "Continuar con email",

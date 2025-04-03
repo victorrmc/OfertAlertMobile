@@ -20,23 +20,23 @@ export default function WelcomeScreen() {
     return (
         <View className="flex-1 bg-slate-800 justify-center items-center">
             <SemicircleSVG width={width + 200} height={height / 2} style={{ position: 'absolute', top: 0, left: -width / 4 }} />
-            <Text className="text-4xl font-bold text-orange-500 top-14 self-center">
+            <Text className="text-5xl font-title text-orange-500 top-14 self-center">
                 {t('welcome.title')}
             </Text>
             <View className="flex-1 justify-center items-center w-full">
-                <Image source={require('../public/img/logo.png')} style={{ transform: [{ rotate: '20deg' }] }} className={`w-40 h-56 relative ${Device.deviceType === 2 ? 'bottom-60' : 'bottom-16 self-start ml-4'}`} />
-                <Text className="text-3xl font-bold text-white text-center mb-4">
-                    {t('welcome.subtitle')}
+                <Image source={require('../public/img/logo.png')} style={{ transform: [{ rotate: '20deg' }] }} className={`w-44 h-60 relative ${Device.deviceType === Device.DeviceType.TABLET ? 'bottom-60' : 'bottom-24 self-start ml-6'}`} />
+                <Text className="text-4xl font-medium text-white text-center mb-4 mt-10">
+                    {t('welcome.subtitle1')}<Text className="text-orange-500">{t('welcome.deals')}</Text>{t('welcome.subtitle2')}
                 </Text>
-                <Text className={`text-white mx-4 mb-8 ${Device.deviceType === 2 ? 'text-xl mx-10' : 'text-sm'}`}>
+                <Text className={`text-white font-regular mx-8 mb-8 ${Device.deviceType === 2 ? 'text-xl mx-10' : 'text-xl'}`}>
                     {t('welcome.description')}
                 </Text>
                 <TouchableOpacity
                     className={`bg-orange-500 w-screen rounded-full flex-row items-center justify-center absolute -bottom-4 `}
-                    onPress={() => navigation.navigate('Login')}
+                    onPress={() => navigation.navigate('Principal')}
                     style={{ marginBottom: 20 }}
                 >
-                    <Text className={`text-slate-900 text-3xl font-bold absolute top-4 ${Device.deviceType === 2 ? 'right-36 text-5xl top-8' : 'right-14'}`}>
+                    <Text className={`text-slate-900 text-4xl font-title absolute top-4 ${Device.deviceType === Device.DeviceType.TABLET ? 'right-36 text-5xl top-8' : 'right-14'}`}>
                         {t('welcome.button')}
                     </Text>
                     <ArrowSVG width={Device.deviceType === 2 ? 800 : width} height={Device.deviceType === 2 ? 150 : 100} />
