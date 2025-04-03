@@ -6,6 +6,7 @@ import ArrowSVG from '../public/img/ArrorwSVG';
 import * as Device from 'expo-device';
 import { useTranslation } from 'react-i18next';
 import { LinearGradient } from 'expo-linear-gradient';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 export default function WelcomeScreen() {
     const { t } = useTranslation();
@@ -15,7 +16,10 @@ export default function WelcomeScreen() {
 
     return (
         <LinearGradient
-            colors={["#1e293b", "#0f172a"]}
+            colors={["#0d1321", "#1a1b4b", "#c45c24"]}
+            locations={[0, 0.5, 1]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
             className="flex-1 justify-between"
         >
 
@@ -56,21 +60,19 @@ export default function WelcomeScreen() {
                     onPress={() => navigation.navigate("Login")}
                     className="w-full"
                 >
-                    <View className="bg-orange-500 rounded-full h-[100px] w-full items-center justify-center">
-                        <View className="absolute w-full h-full">
-                            <ArrowSVG width={width} height={100} />
-                        </View>
+                    <View className="bg-orange-500 rounded-t-[60px] h-[100px] w-full items-center justify-center flex-row">
                         <Text
-                            className="text-slate-900 text-4xl font-title absolute mb-14"
-                            style={{
-                                transform: [{ translateX: width * 0.20 }], // Ajusta este valor según necesites
-                            }}
+                            className="text-slate-900 text-4xl font-title mr-4"
                         >
                             {t("welcome.button")}
                         </Text>
+                        <FontAwesome
+                            name="angle-double-right"
+                            size={36}
+                            color="#0f172a"
+                        />
                     </View>
                 </TouchableOpacity>
-
             </View>
 
             <StatusBar style="light" />
