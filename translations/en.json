@@ -28,12 +28,11 @@
         "plans": {
             "title": "Choose Your Plan",
             "basic": {
-                "title": "Basic",
-                "price": "0.99€",
+                "title": "Free",
+                "price": "Adds",
                 "features": {
                     "check": "Daily offer check",
-                    "products": "100 products max",
-                    "ads": "Ad-free experience"
+                    "products": "10 products max"
                 }
             },
             "premium": {
@@ -41,7 +40,7 @@
                 "price": "2.99€",
                 "features": {
                     "check": "4x daily offer checks",
-                    "products": "250 products max",
+                    "products": "Unlimited products",
                     "ads": "Ad-free experience"
                 }
             }

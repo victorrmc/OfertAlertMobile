@@ -10,7 +10,7 @@ const RadioButton = ({ value, label, description, selected, onPress }) => {
       <View style={styles.wrap}>
         <Dot selected={selected} />
         <View>
-          <Text style={styles.label}>{label}</Text>
+          <Text className="font-regular" style={styles.label}>{label}</Text>
           {description && <Text style={styles.description}>{description}</Text>}
         </View>
       </View>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
   },
   label: {
-    fontSize: 20,
+    fontSize: 17,
     color: "white",
   },
   description: {

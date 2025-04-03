@@ -10,8 +10,8 @@ const ProfileHeader = () => {
         <View className="flex-row items-center mb-6">
             <AvatarUser classNameParams="mr-4" />
             <View className="top-6">
-                <Text className="text-white text-2xl font-bold">{t('profile.title')}</Text>
-                <Text className="text-gray-300 mb-6 font-bold">{t('profile.subtitle')}</Text>
+                <Text className="text-white text-2xl font-title">{t('profile.title')}</Text>
+                <Text className="text-gray-300 mb-6 font-medium">{t('profile.subtitle')}</Text>
             </View>
         </View>
     );

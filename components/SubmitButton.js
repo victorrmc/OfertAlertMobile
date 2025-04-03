@@ -5,7 +5,7 @@ const SubmitButton = ({ onSubmit, text }) => (
         className="bg-orange-500 p-3 rounded-full mb-6 w-full h-14 justify-center"
         onPress={onSubmit}
     >
-        <Text className="text-white text-xl font-bold text-center">{text}</Text>
+        <Text className="text-white text-xl font-title text-center">{text}</Text>
     </TouchableOpacity>
 );
 

@@ -28,12 +28,11 @@
         "plans": {
             "title": "Elige tu Plan",
             "basic": {
-                "title": "Básico",
-                "price": "0.99€",
+                "title": "Gratuito",
+                "price": "Anuncios",
                 "features": {
                     "check": "Revisión diaria de ofertas",
-                    "products": "100 productos máximo",
-                    "ads": "Sin anuncios"
+                    "products": "10 productos máximo"
                 }
             },
             "premium": {
@@ -41,7 +40,7 @@
                 "price": "2.99€",
                 "features": {
                     "check": "4 revisiones diarias",
-                    "products": "250 productos máximo",
+                    "products": "Productos ilimitados",
                     "ads": "Sin anuncios"
                 }
             }

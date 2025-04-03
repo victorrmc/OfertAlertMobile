@@ -16,7 +16,7 @@ export default function UserProfileScreen() {
     const { t } = useTranslation();
     const navigation = useNavigation();
     const { logout, user } = useAuth();
-    const [selectedPlan, setSelectedPlan] = useState('');
+    const [selectedPlan, setSelectedPlan] = useState('basic');
     const [voice, setVoice] = useState(REMINDERS_OFFERS);
 
     const handlePlanChange = (plan) => {
@@ -41,14 +41,14 @@ export default function UserProfileScreen() {
             <ProfileHeader email={user?.email} />
             <NotificationOptions voice={voice} handleSavePreferences={handleSavePreferences} />
             <LanguageSelector />
-            <Text className="text-white text-2xl font-bold mb-6">{t('profile.title')}</Text>
+            <Text className="text-white text-2xl font-title mb-6">{t('profile.title')}</Text>
             <PlanOption plan="basic" selectedPlan={selectedPlan} handlePlanChange={handlePlanChange} />
             <PlanOption plan="premium" selectedPlan={selectedPlan} handlePlanChange={handlePlanChange} />
 
             <SubmitButton onSubmit={handleSaveChanges} text={t('profile.saveButton')} />
 
             <TouchableOpacity className="bg-slate-800 p-4 rounded-full mb-12" onPress={handleLogout}>
-                <Text className="text-white text-center font-bold text-lg">{t('profile.logoutButton')}</Text>
+                <Text className="text-white text-center font-title text-xl">{t('profile.logoutButton')}</Text>
             </TouchableOpacity>
 
             <StatusBar style="light" />

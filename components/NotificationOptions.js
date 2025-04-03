@@ -12,7 +12,7 @@ const NotificationOptions = ({ voice, handleSavePreferences }) => {
 
     return (
         <View className="mb-6">
-            <Text className="text-white text-lg font-bold mb-4">{t('profile.notifications')}</Text>
+            <Text className="text-white text-xl font-title mb-4">{t('profile.notifications')}</Text>
             <RadioButton
                 selected={voice === MUTED}
                 value={MUTED}

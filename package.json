@@ -23,7 +23,6 @@
     "expo-splash-screen": "^0.29.22",
     "expo-status-bar": "~2.0.1",
     "i18next": "^23.16.4",
-    "lucide-react": "^0.445.0",
     "nativewind": "^2.0.11",
     "playwright": "^1.44.1",
     "react": "18.3.1",
