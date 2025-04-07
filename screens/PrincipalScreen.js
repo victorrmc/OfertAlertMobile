@@ -52,7 +52,7 @@ export default function PrincipalScreen() {
   };
 
   return (
-    <ScrollView className="flex-1 px-5 w-full bg-slate-900">
+    <ScrollView className="flex-1 px-5 w-full bg-secondary-default">
       <View className="items-center w-full">
         <View className="items-center w-full">
           <AvatarUser classNameParams="self-start mb-10" />

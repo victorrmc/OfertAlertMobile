@@ -25,7 +25,7 @@ export default function WelcomeScreen() {
 
             {/* Contenido principal */}
             <View className="flex-1 px-6 pt-16">
-                <Text className="text-5xl font-title text-orange-500 mb-8">
+                <Text className="text-5xl font-title text-primary  mb-8">
                     {t("welcome.title")}
                 </Text>
 
@@ -39,14 +39,14 @@ export default function WelcomeScreen() {
                     <View className="mt-12 mb-4">
                         <Text className="text-4xl font-medium text-white text-center">
                             {t("welcome.subtitle1")}
-                            <Text className="text-orange-500">{t("welcome.deals")}</Text>
+                            <Text className="text-primary">{t("welcome.deals")}</Text>
                             {t("welcome.subtitle2")}
                         </Text>
 
                     </View>
 
                     <Text
-                        className={`text-slate-300 text-center ${isTablet ? "text-xl px-20" : "text-lg px-4"
+                        className={`text-secondary-300 text-center ${isTablet ? "text-xl px-20" : "text-lg px-4"
                             }`}
                     >
                         {t("welcome.description")}
@@ -60,9 +60,9 @@ export default function WelcomeScreen() {
                     onPress={() => navigation.navigate("Login")}
                     className="w-full"
                 >
-                    <View className="bg-orange-500 rounded-t-[60px] h-[100px] w-full items-center justify-center flex-row">
+                    <View className="bg-primary rounded-t-[60px] h-[100px] w-full items-center justify-center flex-row">
                         <Text
-                            className="text-slate-900 text-4xl font-title mr-4"
+                            className="text-secondary-default text-4xl font-title mr-4"
                         >
                             {t("welcome.button")}
                         </Text>

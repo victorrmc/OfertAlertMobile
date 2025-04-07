@@ -37,7 +37,7 @@ export default function UserProfileScreen() {
     };
 
     return (
-        <ScrollView className="flex-1 bg-slate-900 p-6">
+        <ScrollView className="flex-1 bg-secondary-default p-6">
             <ProfileHeader email={user?.email} />
             <NotificationOptions voice={voice} handleSavePreferences={handleSavePreferences} />
             <LanguageSelector />
@@ -47,7 +47,7 @@ export default function UserProfileScreen() {
 
             <SubmitButton onSubmit={handleSaveChanges} text={t('profile.saveButton')} />
 
-            <TouchableOpacity className="bg-slate-800 p-4 rounded-full mb-12" onPress={handleLogout}>
+            <TouchableOpacity className="bg-secondary-800 p-4 rounded-full mb-12" onPress={handleLogout}>
                 <Text className="text-white text-center font-title text-xl">{t('profile.logoutButton')}</Text>
             </TouchableOpacity>
 

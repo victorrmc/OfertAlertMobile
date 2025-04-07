@@ -18,7 +18,7 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
     const renderFeatureItem = (text) => (
         <View className="flex-row items-center space-x-2 mb-2">
             <Ionicons name="checkmark" size={24} color="orange" />
-            <Text className="text-slate-200 text-base">{text}</Text>
+            <Text className="text-secondary-200 text-base">{text}</Text>
         </View>
     );
 
@@ -40,7 +40,7 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                         {t(`profile.plans.${plan}.title`)}
                     </Text>
                     {selectedPlan === plan && (
-                        <View className="bg-orange-400 px-3 py-1 rounded-full">
+                        <View className="bg-primary px-3 py-1 rounded-full">
                             <Text className="text-white font-medium">
                                 {t("profile.selected")}
                             </Text>
@@ -54,7 +54,7 @@ const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
                         {t(`profile.plans.${plan}.price`)}
                     </Text>
                     {!isBasic && (
-                        <Text className="text-slate-300 mt-1">per month</Text>
+                        <Text className="text-secondary-300 mt-1">per month</Text>
                     )}
                 </View>
 

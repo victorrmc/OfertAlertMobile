@@ -127,7 +127,7 @@ export default function VerificationScreen({ route, navigation }) {
                         ))}
                     </View>
 
-                    <Text className="text-orange-500 text-lg font-bold mb-6">
+                    <Text className="text-primary text-lg font-bold mb-6">
                         {formatTime(timeLeft)}
                     </Text>
 
