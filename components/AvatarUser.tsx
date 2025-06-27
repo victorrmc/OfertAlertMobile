@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useAuth } from '../context/authContext';
 
-
-const AvatarUser = ({ classNameParams = '', textClassName = '' }) => {
+interface AvatarUserProps {
+    classNameParams?: string;
+    textClassName?: string;
+}
+const AvatarUser = ({ classNameParams = '', textClassName = '' }: AvatarUserProps): ReactElement => {
     const navigation = useNavigation();
     const { user } = useAuth();
-    const handlePress = () => {
+    const handlePress = (): void => {
         navigation.navigate('UserProfile');
     };
 

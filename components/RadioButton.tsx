@@ -1,12 +1,21 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
+import { NotificationOptionsEnum } from "./NotificationOptions";
 
-const RadioButton = ({ value, label, description, selected, onPress }) => {
-  const handleOnPress = (value) => {
+interface RadioButtonProps {
+  value: NotificationOptionsEnum;
+  label: string;
+  description?: string;
+  className?: string;
+  selected: boolean;
+  onPress: (value: NotificationOptionsEnum) => void;
+}
+const RadioButton = ({ value, label, description, className, selected, onPress }: RadioButtonProps) => {
+  const handleOnPress = (value: NotificationOptionsEnum) => {
     onPress(value);
   };
 
   return (
-    <Pressable onPress={() => handleOnPress(value)}>
+    <Pressable onPress={() => handleOnPress(value)} className={className}>
       <View style={styles.wrap}>
         <Dot selected={selected} />
         <View>
@@ -19,7 +28,7 @@ const RadioButton = ({ value, label, description, selected, onPress }) => {
 };
 
 // Componente Dot
-const Dot = ({ selected }) => {
+const Dot = ({ selected }: { selected: boolean }) => {
   return (
     <View style={styles.radio}>
       <View

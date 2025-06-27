@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-const LanguageSelector = () => {
+type languageType = 'en' | 'es';
+
+const LanguageSelector = (): ReactElement => {
     const { i18n } = useTranslation();
     const { t } = useTranslation();
 
-    const changeLanguage = (lng) => {
+    const changeLanguage = (lng: languageType) => {
         i18n.changeLanguage(lng);
     };
 

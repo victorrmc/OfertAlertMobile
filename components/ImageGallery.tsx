@@ -1,7 +1,14 @@
-import { View, Image, TouchableOpacity, Linking } from 'react-native';
+import { View, Image, TouchableOpacity, Linking, ImageSourcePropType } from 'react-native';
 import { extractDomainFromUrl } from '../utils/urlValidationUtils';
+import { ReactElement } from 'react';
 
-export const storeLogos = [
+export type URL = `https:${string}`;
+type StoreLogo = {
+    source: ImageSourcePropType;
+    url: URL;
+}
+
+export const storeLogos: readonly StoreLogo[] = [
     { source: require('../public/img/LogosMarcas/Asos.jpg'), url: 'https://www.asos.com' },
     { source: require('../public/img/LogosMarcas/Bstn.png'), url: 'https://www.bstn.com' },
     { source: require('../public/img/LogosMarcas/Bohooman.jpg'), url: 'https://www.boohoo.com' },
@@ -14,14 +21,14 @@ export const storeLogos = [
     { source: require('../public/img/LogosMarcas/ElCorteIngles.png'), url: 'https://www.elcorteingles.es' },
 ];
 
-export const allowedDomains = storeLogos.map(logo => extractDomainFromUrl(logo.url));
+export const allowedDomains: (string | null)[]  = storeLogos.map(logo => extractDomainFromUrl(logo.url));
 
-const ImageGallery = () => {
-    const openUrl = (url) => {
+const ImageGallery = (): ReactElement => {
+    const openUrl = (url: URL): void => {
         Linking.openURL(url).catch((err) => console.error('An error occurred', err));
     };
 
-    const renderImage = (logo, index) => (
+    const renderImage = (logo : StoreLogo, index : number): ReactElement => (
         <TouchableOpacity key={index} onPress={() => openUrl(logo.url)}>
             <Image source={logo.source} className="w-28 h-28 rounded-3xl bg-white" />
         </TouchableOpacity>

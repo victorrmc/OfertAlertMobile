@@ -7,6 +7,15 @@ import * as Device from 'expo-device';
 import { useTranslation } from 'react-i18next';
 import { LinearGradient } from 'expo-linear-gradient';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { useAuth } from 'context/authContext';
+
+interface LinearGradientProps {
+    colors: string[];
+    locations: number[];
+    start: { x: number; y: number };
+    end: { x: number; y: number };
+    className: string;
+}
 
 export default function WelcomeScreen() {
     const { t } = useTranslation();
@@ -15,7 +24,7 @@ export default function WelcomeScreen() {
     const isTablet = Device.deviceType === Device.DeviceType.TABLET;
 
     return (
-        <LinearGradient
+        <LinearGradient 
             colors={["#0d1321", "#1a1b4b", "#c45c24"]}
             locations={[0, 0.5, 1]}
             start={{ x: 0, y: 0 }}

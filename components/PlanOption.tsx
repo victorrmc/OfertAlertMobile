@@ -4,21 +4,27 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+type Plan = "basic" | "premium";
+interface PlanOptionProps {
+    plan: Plan;
+    selectedPlan: Plan;
+    handlePlanChange: (plan: Plan) => void;
+}
 
-const PlanOption = ({ plan, selectedPlan, handlePlanChange }) => {
+const PlanOption = ({ plan, selectedPlan, handlePlanChange } : PlanOptionProps) => {
     const { t } = useTranslation();
-    const isBasic = plan === "basic";
+    const isBasic: boolean = plan === "basic";
 
-    const getPlanGradient = () => {
+    const getPlanGradient = (): [string, string] => {
         return isBasic
             ? ["#0a192f", "#1a365d"]
             : ["#334155", "#9333ea"];
     };
 
-    const renderFeatureItem = (text) => (
+    const renderFeatureItem = (feature: string) => (
         <View className="flex-row items-center space-x-2 mb-2">
             <Ionicons name="checkmark" size={24} color="orange" />
-            <Text className="text-secondary-200 text-base">{text}</Text>
+            <Text className="text-secondary-200 text-base">{feature}</Text>
         </View>
     );
 

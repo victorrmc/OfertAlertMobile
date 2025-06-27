@@ -3,28 +3,22 @@ import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { useAuth } from '../context/authContext';
-import ProfileHeader from '../components/ProfileHeader';
+import ProfileHeader from '../components/ProfileHeader.tsx';
 import NotificationOptions from '../components/NotificationOptions';
 import PlanOption from '../components/PlanOption';
 import SubmitButton from '../components/SubmitButton';
 import LanguageSelector from '../components/LanguageSelector';
 import { useTranslation } from 'react-i18next';
 
-const REMINDERS_OFFERS = "REMINDERS_OFFERS";
 
 export default function UserProfileScreen() {
     const { t } = useTranslation();
     const navigation = useNavigation();
     const { logout, user } = useAuth();
     const [selectedPlan, setSelectedPlan] = useState('basic');
-    const [voice, setVoice] = useState(REMINDERS_OFFERS);
 
     const handlePlanChange = (plan) => {
         setSelectedPlan(plan);
-    };
-
-    const handleSavePreferences = (option) => {
-        setVoice(option);
     };
 
     const handleSaveChanges = () => {

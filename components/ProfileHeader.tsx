@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { View, Text } from 'react-native';
 import AvatarUser from './AvatarUser';
 import { useTranslation } from 'react-i18next';
 
-const ProfileHeader = () => {
+const ProfileHeader = (): ReactElement => {
     const { t } = useTranslation();
 
     return (

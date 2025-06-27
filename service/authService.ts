@@ -1,9 +1,19 @@
 import axios from 'axios';
 import { BASE_URL } from '../constants/constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {errorTypeHandler} from '../utils/helper';
+interface AuthResponse {
+    success: boolean;
+    data?: string;
+    error?: string;
+}
+interface checkAuthStatusResponse extends Omit<AuthResponse, 'data'> {
+    isAuthenticated: boolean;
+    email?: string | null;
+}
 
 class AuthService {
-    async sendVerificationCode(email) {
+    async sendVerificationCode(email: string): Promise<AuthResponse> {
         try {
             const response = await axios.post(`${BASE_URL}/api/auth/send-code`, {
                 email: email.trim()
@@ -16,12 +26,12 @@ class AuthService {
             console.error('Error sending verification code:', error);
             return {
                 success: false,
-                error: error.response?.data || error.message
+                error: errorTypeHandler(error)
             };
         }
     }
 
-    async verifyCode(email, code) {
+    async verifyCode(email: string, code: string) : Promise<AuthResponse> {
         try {
             const response = await axios.post(`${BASE_URL}/api/auth/verify-code`, {
                 email: email.trim(),
@@ -41,12 +51,12 @@ class AuthService {
             console.error('Error verifying code:', error);
             return {
                 success: false,
-                error: error.response?.data || error.message
+                error: errorTypeHandler(error)
             };
         }
     }
 
-    async logout() {
+    async logout() : Promise<AuthResponse> {
         try {
             await AsyncStorage.removeItem('userEmail');
             return { success: true };
@@ -54,12 +64,12 @@ class AuthService {
             console.error('Error during logout:', error);
             return {
                 success: false,
-                error: error.message
+                error: errorTypeHandler(error)
             };
         }
     }
 
-    async checkAuthStatus() {
+    async checkAuthStatus(): Promise<checkAuthStatusResponse> {
         try {
             const email = await AsyncStorage.getItem('userEmail');
             return {
@@ -72,7 +82,7 @@ class AuthService {
             return {
                 success: false,
                 isAuthenticated: false,
-                error: error.message
+                error: errorTypeHandler(error)
             };
         }
     }

@@ -1,9 +1,23 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AuthService from '../service/authService';
-const AuthContext = createContext(null);
 
-export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+interface AuthContextProps{
+    user: User | null,
+    login: (email: string) => void,
+    logout: () => Promise<void>,
+}
+const AuthContext = createContext<AuthContextProps | null>(null);
+
+interface User{
+    email: string
+}
+
+interface AuthProviderProps {
+    children: ReactNode;
+}
+
+export const AuthProvider = ({ children }: AuthProviderProps) => {
+    const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
         // Verificar el estado de autenticación al iniciar
@@ -12,12 +26,12 @@ export const AuthProvider = ({ children }) => {
 
     const checkAuthStatus = async () => {
         const result = await AuthService.checkAuthStatus();
-        if (result.success && result.isAuthenticated) {
+        if (result.success && result.isAuthenticated && result.email) {
             setUser({ email: result.email });
         }
     };
 
-    const login = (email) => {
+    const login = (email : string) => {
         setUser({ email });
     };
 

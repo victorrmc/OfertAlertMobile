@@ -8,16 +8,21 @@ import SubmitButton from '../components/SubmitButton';
 import SocialButton from '../components/SocialButton';
 import { useTranslation } from 'react-i18next';
 import AuthService from '../service/authService';
+import { Link } from 'expo-router';
+
+
 
 export default function LoginScreen() {
-    const [email, setEmail] = useState('');
-    const [emailValido, setEmailValido] = useState(true);
+    const [email, setEmail] = useState<string>('');
+    const [emailValido, setEmailValido] = useState<boolean>(true);
     const navigation = useNavigation();
     const { login } = useAuth();
     const { t } = useTranslation();
 
-    const handleSignUp = async () => {
-        if (email.trim() === '') {
+    const handleSignUp: () => Promise<void> = async () => {
+        //Esto hay que moverlo abajo despues
+        navigation.navigate('Principal');
+        if (email === null || email.trim() === '') {
             Alert.alert('Error', t('errors.login.emailblank'));
             return;
         }
@@ -27,10 +32,7 @@ export default function LoginScreen() {
         }
         try {
             login(email.trim());
-            navigation.reset({
-                index: 0,
-                routes: [{ name: 'Principal' }],
-            });
+            
             /*const result = await AuthService.sendVerificationCode(email.trim());
             if (result.success) {
                 navigation.navigate('Verification', { email: email.trim() });
@@ -73,7 +75,7 @@ export default function LoginScreen() {
                     />
                 </View>
             </ImageBackground>
-            <StatusBar style="light" />
+            <StatusBar style="dark" />
         </View>
     );
 }
